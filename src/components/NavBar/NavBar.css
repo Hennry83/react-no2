@@ -1,0 +1,45 @@
+
+.navbar {
+    float: left;
+    width: 100%;
+    box-shadow: 1px 3px 5px grey;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    color: lightgrey;
+    background-color: #414833;
+}
+
+.carrito {
+    display: flex;
+    align-items: center;
+}
+
+img{
+    width: 10%;
+    height:100%;
+}
+
+ul {
+    list-style: none;
+    display: flex;      
+    color: lightgrey;  
+} 
+
+li {
+    margin: 0px 10px;
+    color: lightgrey;
+}
+
+button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: lightgrey;
+}
+
+button:hover {
+    text-decoration: underline;
+}
