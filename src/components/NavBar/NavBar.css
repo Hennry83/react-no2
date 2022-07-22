@@ -10,14 +10,14 @@
     background-color: #414833;
 }
 
-.carrito {
-    display: flex;
-    align-items: center;
+.img-header{
+    width: 10%;
+    height: 15%;
 }
 
-img{
-    width: 10%;
-    height:100%;
+.cart-widget {
+    display: flex;
+    align-items: center;
 }
 
 ul {

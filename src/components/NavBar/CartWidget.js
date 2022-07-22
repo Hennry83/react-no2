@@ -1,11 +1,11 @@
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 
-const Carrito = () => {
+const CartWidget = () => {
     return(
-        <div className='carrito'>
+        <div className='cart-widget'>
             <ShoppingCartTwoToneIcon />
         </div>
     )
 }
 
-export default Carrito
+export default CartWidget
