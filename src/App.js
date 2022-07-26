@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
@@ -8,7 +8,7 @@ function App() {
     <div className="container" >
       <NavBar />
       <section className='main-container'>
-        <ItemListContainer section="Productos en Liquidacion"/>
+        <ItemListContainer titleSection="Productos en Liquidacion"/>
       </section>
     </div>
   );

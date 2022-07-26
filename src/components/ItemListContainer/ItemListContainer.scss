@@ -1,0 +1,10 @@
+.list-products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    //justify-content: center;
+    h2{
+        width: 100%;
+        text-align: start;
+    }
+}

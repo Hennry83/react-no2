@@ -2,12 +2,15 @@
 
 * {
     box-sizing: border-box;
-    font-weight: 400;
-    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-family: MuseoModerno;
 }
 
 .main-container {
     float: left;
     width: 100%;
-    padding: 0 30px;
+    padding: 0 10px;
+    display: flex;
+    text-shadow: 1px 1px 3px;
+    color: rgb(4, 4, 54);
 }
