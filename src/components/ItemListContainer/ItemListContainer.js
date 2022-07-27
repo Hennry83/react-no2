@@ -1,15 +1,37 @@
-import ItemProduct from "../ItemProduct/ItemProduct"
+import { useEffect, useState } from "react"
+import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.scss'
+import products from '../../utils/products.mock'
+
 
 const ItemListContainer = ({titleSection}) => {
+
+    const [listProducts, setListProducts] = useState([])
+
+    const getProducts = new Promise( (resolve, reject) => {
+        setTimeout( () => {
+            resolve(products)
+        }, 2000)
+    })
+
+    useEffect(() => {
+        getProducts
+            .then( (res) => { // Respuesta OK
+                //console.log("Productos: ", res)
+                setListProducts(res)
+            })
+            .catch( (error) => { // Falla la respuesta
+                console.log("la llamada fallo")
+            })
+            .finally( () => { // Siempre que termina por OK o Fallo
+            })
+    }, [])
+
+
     return(
         <div className='list-products'>
             <h2>{titleSection}</h2>
-            <ItemProduct title="Cocina Modena" price={95000} image={'cocina1.jpg'} stock={5} />
-            <ItemProduct title="Deck Exterior" price={37000} image={'deck1.jpg'} stock={7} />
-            <ItemProduct title="Organizador Dormitorio" price={49000} image={'dormitorio1.jpg'} stock={3} />
-            <ItemProduct title="Escritorio doble" price={85000} image={'escritorio1.jpg'} stock={9} />
-            <ItemProduct title="Rack TV" price={41000} image={'rack1.jpg'} stock={8} />
+            <ItemList dataProducts={listProducts}/>
         </div>
     )
 }

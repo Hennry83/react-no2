@@ -1,16 +1,17 @@
 import './ItemProduct.scss'
 import ItemCount from './ItemCount'
 
-const ItemProduct = ({title, price, image, stock}) => {
+//const ItemProduct = ({title, price, image, stock}) => {
+const ItemProduct = ({data}) => {    
 
     return(
         <div className="item-product">
-            <img src={`/assets/${image}`} alt="Imagen producto"/>
-            <p>{title}</p>
-            <span>$ {price}</span>
-            <ItemCount stockItem = {stock}/>
+            <img src={`/assets/${data.image}`} alt="Imagen producto"/>
+            <p>{data.title}</p>
+            <span>$ {data.price}</span>
+            <ItemCount stockItem = {data.stock}/>
             <button>Comprar</button>
-            <p>Stock: {stock}</p>
+            <p>Stock: {data.stock}</p>
         </div> 
     )
 }
