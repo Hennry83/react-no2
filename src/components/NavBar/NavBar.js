@@ -6,12 +6,13 @@ const NavBar = () => {
         // Fragment
         <div className='navbar'>
             <img src="/assets/header.png" alt="logo no2"/>
+            <p>Equipamientos Personalizados</p>
             <ul>
-                <li><button>Cocinas</button></li>
-                <li><button>Escritorios</button></li>
-                <li><button>Livings</button></li>
-                <li><button>Racks</button></li>
-                <li><button>Decks</button></li>
+                <li><button>Inicio</button></li>
+                <li><button>Productos</button></li>
+                <li><button>Contacto</button></li>
+                <li><button>Services</button></li>
+                <li><button>About Us</button></li>
             </ul> 
             <CartWidget />
         </div>
