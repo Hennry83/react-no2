@@ -1,12 +1,12 @@
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+//import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 //import React, {useState, useEffect} from 'react';
 
 function App() {
   
-  //Ejercicio practico de consumir API con fetch
+  //EJERCICIO PRACTICO DE CONSUMIR API CON FETCH
   /* const [pokemon, setPokemon] = useState([]);
   useEffect( ()=>{
     fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
@@ -28,8 +28,8 @@ function App() {
       })} */}
       <NavBar />
       <section className='main-container'>
-        {/* <ItemListContainer titleSection="Productos en Liquidacion"/> */}
-        <ItemDetailContainer />
+        <ItemListContainer titleSection="Productos en Liquidacion"/>
+        {/* <ItemDetailContainer /> */}
       </section>
     </div>
   );
