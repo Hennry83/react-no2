@@ -1,15 +1,18 @@
 import './ItemProduct.scss'
 import ItemCount from './ItemCount'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const ItemProduct = ({data}) => {    
 
-    const {title, image, price, stock} = data
+    const {title, image, price, stock, id} = data
     //const {description,image, price} = data
     
     return(
         <div className="item-product">
-            {/* <p>{description}</p> */}
-            <img src={`/assets/${image}`} alt="Imagen producto"/>
+            <Link to={`/productos/${id}`}> 
+                <img src={`/assets/${image}`} alt="Imagen producto"/>
+            </Link>
             <p>{title}</p>
             <span>$ {price}</span>
             <ItemCount stockItem = {stock}/>

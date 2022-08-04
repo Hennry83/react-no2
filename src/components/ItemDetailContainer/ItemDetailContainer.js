@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react"
-import ItemList from "../ItemList/ItemList"
 import './ItemDetailContainer.scss'
-import ItemDetail from '../../utils/ItemDetail'
+import ItemDetail from "../ItemDetail/ItemDetail"
+import productdetail from '../../utils/productdetail.mock'
+import { useParams } from 'react-router-dom'
 
 
 const ItemDetailContainer = () => {
 
-    const [detailProduct, setDetailProduct] = useState([])
+    const [detailProduct, setDetailProduct] = useState({})
 
-    const getDetail = new Promise( (resolve, reject) => {
+    const { id } = useParams()
+
+   /*  const getDetail = new Promise( (resolve, reject) => {
         setTimeout( () => {
-            resolve(ItemDetail)
+            resolve(productDetail)
         }, 1000)
-    })
+    }) */
 
-    useEffect(() => {
+  /*   useEffect(() => {
         getDetail
             .then( (res) => { // Respuesta OK
                 //console.log("Detail Product: ", res)
@@ -25,13 +28,26 @@ const ItemDetailContainer = () => {
             })
             .finally( () => { // Siempre que termina por OK o Fallo
             })
-    }, [])
+    }, []) */
 
+    useEffect( () => {
+        filterById()
+    }, [id])
 
+    const filterById = () => {
+        productdetail.some( (product) => {
+            if(product.id == id) {
+                console.log("producto filtrado: ", product)
+                setDetailProduct(product) 
+            }
+        }
+    )
+    }
+    
     return(
         <div className='detail-products'>
             <h2>Detalle del Producto</h2>
-            <ItemList dataDetail={detailProduct}/>
+            <ItemDetail data={detailProduct}/>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.scss'
+import ItemList from "../ItemList/ItemList"
 import products from '../../utils/products.mock'
 
 
@@ -11,7 +11,7 @@ const ItemListContainer = ({titleSection}) => {
     const getProducts = new Promise( (resolve, reject) => {
         setTimeout( () => {
             resolve(products)
-        }, 2000)
+        }, 1500)
     })
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const ItemListContainer = ({titleSection}) => {
     return(
         <div className='list-products'>
             <h2>{titleSection}</h2>
-            <ItemList dataProducts={listProducts}/>
+            <ItemList data={listProducts}/>
         </div>
     )
 }

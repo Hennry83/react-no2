@@ -1,4 +1,4 @@
-.item-product{
+.detail-product{
     box-shadow: 1px 3px 5px grey;
     width: 30%;
     padding: 10px 20px;
@@ -14,8 +14,6 @@
     }
     button{
         margin: 0px 5px 0px 10px;
-        //border-radius: 5px;
-        //background-color: lightblue;
     }
 }
 
@@ -31,7 +29,5 @@
 }
 
 .countProd button {
-    //padding: 10px;
     font-size: 15px;
-    //margin: 10px;
 }
