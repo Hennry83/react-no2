@@ -31,8 +31,9 @@ function App() {
     <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />}/> {/* renderiza ItemDetailContainer */}
-          <Route path="/productos" element={<Home />}/> {/* renderiza ItemDetailContainer */}
+          <Route path="/" element={<Home />}/> 
+          <Route path="/productos" element={<Home />}/>
+          <Route path="/category/:categoryName" element={<Home />}/>
           <Route path="/productos/:id" element={<Detail />} />
           <Route path="/contacto" element={<Contact />}/>
           <Route path="/about" element={<About />}/>

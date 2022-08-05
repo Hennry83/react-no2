@@ -2,22 +2,42 @@ import { useEffect, useState } from "react"
 import './ItemListContainer.scss'
 import ItemList from "../ItemList/ItemList"
 import products from '../../utils/products.mock'
+import { useParams } from "react-router-dom"
 
 
 const ItemListContainer = ({titleSection}) => {
 
     const [listProducts, setListProducts] = useState([])
+    const {categoryName} = useParams();
 
+    const filterCategory = products.filter((productos) => productos.category === categoryName);
+    
     const getProducts = new Promise( (resolve, reject) => {
         setTimeout( () => {
-            resolve(products)
-        }, 1500)
-    })
+            if (categoryName){
+                resolve(filterCategory);
+            }else {
+                resolve(products);
+            }            
+        }, 2000);
+    });
+
+/*     useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const res = await getProducts();
+                setListProducts (res);
+            } catch (error){
+                console.log(error);
+            }
+        };
+        getProduct();
+    }); */
 
     useEffect(() => {
         getProducts
             .then( (res) => { // Respuesta OK
-                //console.log("Productos: ", res)
+                console.log("Productos: ", res)
                 setListProducts(res)
             })
             .catch( (error) => { // Falla la respuesta
@@ -25,7 +45,7 @@ const ItemListContainer = ({titleSection}) => {
             })
             .finally( () => { // Siempre que termina por OK o Fallo
             })
-    }, [])
+    }, []) 
 
 
     return(

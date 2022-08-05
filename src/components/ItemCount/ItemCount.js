@@ -1,14 +1,19 @@
 import { useState } from "react"
 
-const ItemCount = ({setQuantitySelected}) => {
-    const [countQuantity, setCountQuantity] = useState(1)
+const ItemCount = ({setQuantitySelected, dataProduct}) => {
+   
+    const [countQuantity, setCountQuantity] = useState(0)
+
+    let stockLimit = dataProduct.stock
 
     const addQuantity = () => {
-        setCountQuantity(countQuantity + 1)
+        if (countQuantity < stockLimit)
+           setCountQuantity(countQuantity + 1)
     }
     
     const removeQuantity = () => {
-        setCountQuantity(countQuantity - 1)
+        if (setQuantitySelected > 0)
+          setCountQuantity(countQuantity - 1)
     }
 
     const onAdd = () => {

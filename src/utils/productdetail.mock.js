@@ -3,7 +3,6 @@ const itemDetail = [
         id:1,
         title: "Cocina Modena",
         description: "Cocina con estilo mninimalistas",
-        category: "cocinas",
         price: 95000,
         image: 'cocina1.jpg',
         stock: 5
@@ -12,7 +11,6 @@ const itemDetail = [
         id:2,
         title: "Deck Exterior",
         description: "Decks para acoplar a piletas y hacer tu jardin mas vistoso ",
-        category: "decks",
         price: 37000,
         image: 'deck1.jpg',
         stock: 7
@@ -21,7 +19,6 @@ const itemDetail = [
         id:3,
         title: "Organizador Dormitorio",
         description: "organizador de dormitorios standard. Consultanos por diseño personalizado",
-        category: "dormitorios",
         price: 49000,
         image: 'dormitorio1.jpg',
         stock: 3
@@ -30,7 +27,6 @@ const itemDetail = [
         id:4,
         title: "Escritorio doble",
         description: "Escritorios funcionales para optimizar tus espacios.",
-        category: "escritorios",
         price: 85000,
         image: 'escritorio1.jpg',
         stock: 9
@@ -39,7 +35,6 @@ const itemDetail = [
         id:5,
         title: "Rack TV",
         description: "Rack hechos a medidas para aprovechar espacio y decorar tu ambiente mas usado",
-        category: "racks",
         price: 41000,
         image: 'rack1.jpg',
         stock: 8

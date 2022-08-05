@@ -4,6 +4,7 @@ const products = [
         title: "Cocina Modena",
         price: 95000,
         image: 'cocina1.jpg',
+        category: "cocinas",
         stock: 5
     },
     {
@@ -11,6 +12,7 @@ const products = [
         title: "Deck Exterior",
         price: 37000,
         image: 'deck1.jpg',
+        category: "decks",
         stock: 7
     },
     {
@@ -18,6 +20,7 @@ const products = [
         title: "Organizador Dormitorio",
         price: 49000,
         image: 'dormitorio1.jpg',
+        category: "dormitorios",
         stock: 3
     },
     {
@@ -25,6 +28,7 @@ const products = [
         title: "Escritorio doble",
         price: 85000,
         image: 'escritorio1.jpg',
+        category: "escritorios",
         stock: 9
     },
     {
@@ -32,6 +36,7 @@ const products = [
         title: "Rack TV",
         price: 41000,
         image: 'rack1.jpg',
+        category: "racks",
         stock: 8
     },
 ]
