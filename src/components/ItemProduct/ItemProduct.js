@@ -1,6 +1,5 @@
 import './ItemProduct.scss'
 import ItemCount from './ItemCount'
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const ItemProduct = ({data}) => {    

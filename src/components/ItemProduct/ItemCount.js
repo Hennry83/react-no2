@@ -3,7 +3,7 @@ import './ItemProduct.scss'
 
 const ItemCount = ({stockItem}) => {
 
-    const [contador, setContador] = useState(0)
+    const [contador, setContador] = useState(1)
 
     let stockLimit = stockItem
 

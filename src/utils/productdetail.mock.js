@@ -39,6 +39,14 @@ const itemDetail = [
         image: 'rack1.jpg',
         stock: 8
     },
+    {
+        id:6,
+        title: "Cocina Modena",
+        description: "Otra Cocina con estilo mninimalista",
+        price: 120000,
+        image: 'cocina1.jpg',
+        stock: 13
+    },
 ]
 
 export default itemDetail

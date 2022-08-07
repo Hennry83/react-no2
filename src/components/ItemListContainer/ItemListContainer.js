@@ -11,7 +11,7 @@ const ItemListContainer = ({titleSection}) => {
     const {categoryName} = useParams();
 
     const filterCategory = products.filter((productos) => productos.category === categoryName);
-    
+      
     const getProducts = new Promise( (resolve, reject) => {
         setTimeout( () => {
             if (categoryName){
@@ -21,6 +21,19 @@ const ItemListContainer = ({titleSection}) => {
             }            
         }, 2000);
     });
+
+    useEffect(() => {
+        getProducts
+            .then( (res) => { // Respuesta OK
+                setListProducts(res)
+            })
+            .catch( (error) => { // Falla la respuesta
+                console.log("la llamada fallo")
+            })
+            .finally( () => { // Siempre que termina por OK o Fallo    
+            })
+    },[getProducts])
+
 
 /*     useEffect(() => {
         const getProduct = async () => {
@@ -33,20 +46,6 @@ const ItemListContainer = ({titleSection}) => {
         };
         getProduct();
     }); */
-
-    useEffect(() => {
-        getProducts
-            .then( (res) => { // Respuesta OK
-                console.log("Productos: ", res)
-                setListProducts(res)
-            })
-            .catch( (error) => { // Falla la respuesta
-                console.log("la llamada fallo")
-            })
-            .finally( () => { // Siempre que termina por OK o Fallo
-            })
-    }, []) 
-
 
     return(
         <div className='list-products'>

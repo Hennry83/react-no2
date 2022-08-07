@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const ItemCount = ({setQuantitySelected, dataProduct}) => {
    
-    const [countQuantity, setCountQuantity] = useState(0)
+    const [countQuantity, setCountQuantity] = useState(1)
 
     let stockLimit = dataProduct.stock
 

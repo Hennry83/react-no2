@@ -39,6 +39,14 @@ const products = [
         category: "racks",
         stock: 8
     },
+    {
+        id:6,
+        title: "Cocina Modena",
+        price: 120000,
+        image: 'cocina1.jpg',
+        category: "cocinas",
+        stock: 13
+    },
 ]
 
 export default products
