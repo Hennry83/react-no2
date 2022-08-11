@@ -3,32 +3,14 @@ import './ItemDetailContainer.scss'
 import ItemDetail from "../ItemDetail/ItemDetail"
 import productdetail from '../../utils/productdetail.mock'
 import { useParams } from 'react-router-dom'
+import Modal from '../Modal/Modal'
 
 
 const ItemDetailContainer = () => {
 
     const [detailProduct, setDetailProduct] = useState({})
-
+    const [showModal, setShowModal] = useState(false)
     const { id } = useParams()
-
-   /*  const getDetail = new Promise( (resolve, reject) => {
-        setTimeout( () => {
-            resolve(productDetail)
-        }, 1000)
-    }) */
-
-  /*   useEffect(() => {
-        getDetail
-            .then( (res) => { // Respuesta OK
-                //console.log("Detail Product: ", res)
-                setDetailProduct(res)
-            })
-            .catch( (error) => { // Falla la respuesta
-                console.log("La llamada fallo")
-            })
-            .finally( () => { // Siempre que termina por OK o Fallo
-            })
-    }, []) */
 
     useEffect( () => {
         filterById()
@@ -45,9 +27,14 @@ const ItemDetailContainer = () => {
     }
     
     return(
-        <div className='detail-products'>
+        <div className={`detail-products ${showModal ? 'overlay-black' : ''}`}>    
             <h2>Detalle del Producto</h2>
-            <ItemDetail data={detailProduct}/>
+            <ItemDetail data={detailProduct} setShowModal={setShowModal}/>
+            {showModal && (
+                <Modal title="Imagen Producto" close={setShowModal}>
+                    <img src={`/assets/${detailProduct.image}`} />
+                </Modal>
+            )}
         </div>
     )
 }

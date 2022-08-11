@@ -12,11 +12,20 @@
             transform: scale(1.2);
         } */
     }
-    button{
+    .btn-buy{
         margin: 0px 5px 0px 10px;
-        //border-radius: 5px;
-        //background-color: lightblue;
+        background: rgb(4 4 54);
+        border: 2px solid rgb(4 4 54);
+        color: lightgrey;
+        font-size: 12px;
+        padding: 5px 15px;
+        &:hover{
+            background: lightgrey;
+            color: rgb(4 4 54);
+            font-weight: bold;
+        }
     }
+    
 }
 
 .countProd {

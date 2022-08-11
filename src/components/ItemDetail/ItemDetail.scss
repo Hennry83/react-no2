@@ -12,8 +12,31 @@
             transform: scale(1.2);
         } */
     }
-    button{
+    .btn-end-buy{
         margin: 0px 5px 0px 10px;
+        background: rgb(4 4 54);
+        border: 2px solid rgb(4 4 54);
+        color: lightgrey;
+        font-size: 12px;
+        padding: 5px 15px;
+        &:hover{
+            background: lightgrey;
+            color: rgb(4 4 54);
+            font-weight: bold;
+        }
+    }
+    .btn-add-cart{
+        margin: 10px 5px 0px 10px;
+        background: rgb(4 4 54);
+        border: 2px solid rgb(4 4 54);
+        color: lightgrey;
+        font-size: 12px;
+        padding: 5px 15px;
+        &:hover{
+            background: lightgrey;
+            color: rgb(4 4 54);
+            font-weight: bold;
+        }
     }
 }
 

@@ -34,24 +34,13 @@ const ItemListContainer = ({titleSection}) => {
             })
     },[getProducts])
 
-
-/*     useEffect(() => {
-        const getProduct = async () => {
-            try {
-                const res = await getProducts();
-                setListProducts (res);
-            } catch (error){
-                console.log(error);
-            }
-        };
-        getProduct();
-    }); */
-
     return(
-        <div className='list-products'>
-            <h2>{titleSection}</h2>
-            <ItemList data={listProducts}/>
-        </div>
+        <>
+            <div className='list-products'>
+                <h2>{titleSection}</h2>
+                <ItemList data={listProducts}/>
+            </div>
+        </>
     )
 }
 export default ItemListContainer

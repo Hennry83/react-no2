@@ -5,7 +5,7 @@ const Home = () => {
     return(
         <div className="container" >
             <section className='main-container'>
-            <ItemListContainer section="Productos en oferta"/>
+            <ItemListContainer titleSection ="Listado de nuestros productos con diseños unicos"/>
             </section>
         </div>
     )

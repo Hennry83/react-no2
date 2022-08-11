@@ -10,3 +10,14 @@
         text-align: start;
     }
 }
+
+.overlay-black::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #00000069;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}

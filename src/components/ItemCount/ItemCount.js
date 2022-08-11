@@ -1,7 +1,10 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { CartContext } from "../Context/CartContext"
 
 const ItemCount = ({setQuantitySelected, dataProduct}) => {
    
+    const { addProductToCart } = useContext(CartContext)
+    
     const [countQuantity, setCountQuantity] = useState(1)
 
     let stockLimit = dataProduct.stock
@@ -12,11 +15,15 @@ const ItemCount = ({setQuantitySelected, dataProduct}) => {
     }
     
     const removeQuantity = () => {
-        if (setQuantitySelected > 0)
+        if (countQuantity > 0)
           setCountQuantity(countQuantity - 1)
     }
 
     const onAdd = () => {
+        console.log("Agregar al carrito: ", dataProduct)
+        dataProduct.quantity = countQuantity
+        dataProduct.totalPrice = dataProduct.price * dataProduct.quantity 
+        addProductToCart(dataProduct)
         setQuantitySelected(countQuantity)
     }
 
@@ -27,7 +34,7 @@ const ItemCount = ({setQuantitySelected, dataProduct}) => {
                 <span>{countQuantity}</span>
                 <button onClick={addQuantity}>+</button>
             </div>
-            <button onClick={onAdd}>AGREGAR AL CARRITO</button>
+            <button className="btn-add-cart" onClick={onAdd}>AGREGAR AL CARRITO</button>
         </>
     )
 }
