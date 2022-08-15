@@ -144,12 +144,70 @@ button.btn-delete-all:hover {
     font-weight: bold;
 }
 
+.btn-empty-cart{
+    /* margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px; */
+    margin: 15px;
+    float: right;    
+    background: white;// rgb(4 4 54);
+    cursor: pointer;
+    border: 1px solid lightgray;
+    color: grey;
+    font-size: 10px;
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
 .totalAmount{
-    margin-left: 10px;
+    //margin-left: 10px;
+    margin-right: 10%;
     float: left;
     margin-bottom: 10px;
     margin-top: 10px;
     font-size: 14px;
     padding: 5px 15px;
     font-weight: bold;
+}
+
+.title-cart-finish{
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(4 4 54);
+    text-shadow: 3px 1px 4px rgb(27, 30, 184);
+}
+
+.cart-finish {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    .cart-finish-footer{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        //margin-left: 125px;
+    } 
+}
+
+.btn-pay {
+    margin-right: 10px;
+    float: right;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background:  rgb(4 4 54);
+    cursor: pointer;
+    border: 2px solid rgb(4 4 54);
+    color: lightgrey;
+    font-size: 12px;
+    padding: 5px 20px;
+    font-weight: bold;
+    margin-left: 5%;
+    &:hover {
+        background:  coral;
+        font-weight: bold;
+        color: rgb(4 4 54);
+    }
 }

@@ -24,7 +24,7 @@ const ItemProduct = ({data}) => {
             <span>$ {price}</span>
             <ItemCount stockItem = {stock}/>
             <Link to={`/productos/${id}`}>
-                <button className = "btn-buy">Comprar</button>
+                <button className = "btn-buy">BUY</button>
             </Link>
             <p>Stock: {stock}</p>
         </div> 

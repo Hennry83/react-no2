@@ -4,6 +4,7 @@ import Menu from '@mui/material/Menu';
 //import MenuItem from '@mui/material/MenuItem';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CartContext } from '../Context/CartContext';
+import { Link } from 'react-router-dom'
 
 const CartWidget = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -63,8 +64,16 @@ const CartWidget = () => {
                         </div>
                     )
                 })}
-                <p className='totalAmount'>Total: $ {totalCart} </p>
-                <button onClick={() => clear()} className={"btn-delete-all"}>Clear Cart</button>
+                {
+                 cartProducts.length > 0 ?  <p className='totalAmount'>Total: $ {totalCart} </p> : ''
+                }   
+                {
+                 cartProducts.length > 0 ? <button onClick={() => clear()} className={"btn-delete-all"}>Clear Cart</button> : <Link to="/productos"><button className="btn-empty-cart">empty cart</button></Link>
+                }
+                {
+                 cartProducts.length > 0 ? <Link to="/cart"><button className="btn-delete-all">Buy End</button></Link> : ''
+                }
+                
             </Menu>
         </div>
     )

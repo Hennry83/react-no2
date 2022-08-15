@@ -17,7 +17,7 @@ const ItemDetail = ({data, setShowModal}) => {
                 {/* <ItemCount stockItem = {data.stock}/> */}
                 <p>Stock: {data.stock}</p>
      { 
-       quantitySelected > 0 ? <Link to="/cart"><button className="btn-end-buy">TERMINAR COMPRA</button></Link> : <ItemCount setQuantitySelected={setQuantitySelected} dataProduct={data}/>
+       quantitySelected > 0 ? <Link to="/cart"><button className="btn-end-buy">BUY END</button></Link> : <ItemCount setQuantitySelected={setQuantitySelected} dataProduct={data}/>
      } 
             </div> 
         </>

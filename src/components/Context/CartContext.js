@@ -10,7 +10,7 @@ const CartProvider = ({children}) => {
         let isInCart = cartProducts.find(cartItem => cartItem.id === product.id)
         if(!isInCart) {
             console.log("se agrego el producto:", product)
-            setTotalProducts(totalProducts + 1)
+            setTotalProducts(totalProducts + product.quantity)
             return setCartProducts(cartProducts => [...cartProducts, product])
         }
     }
@@ -18,7 +18,7 @@ const CartProvider = ({children}) => {
     const deleteProduct = (product) => {
         console.log("Producto a eliminar:", product)
         setCartProducts(cartProducts.filter( (cartProduct) => cartProduct.id !== product.id) )
-        setTotalProducts(totalProducts -1)
+        setTotalProducts(totalProducts - product.quantity)
     }
 
     const clear = () => {

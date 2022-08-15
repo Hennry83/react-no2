@@ -28,7 +28,7 @@ const ItemDetailContainer = () => {
     
     return(
         <div className={`detail-products ${showModal ? 'overlay-black' : ''}`}>    
-            <h2>Detalle del Producto</h2>
+            <h2>Product Detail</h2>
             <ItemDetail data={detailProduct} setShowModal={setShowModal}/>
             {showModal && (
                 <Modal title="Imagen Producto" close={setShowModal}>
