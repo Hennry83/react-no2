@@ -7,7 +7,8 @@ const itemDetail = [
         image: 'cocina1.jpg',
         stock: 5,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "cocinas"
     },
     {
         id:2,
@@ -17,7 +18,8 @@ const itemDetail = [
         image: 'deck1.jpg',
         stock: 7,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "decks"
     },
     {
         id:3,
@@ -27,7 +29,8 @@ const itemDetail = [
         image: 'dormitorio1.jpg',
         stock: 3,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "dormitorios"
     },
     {
         id:4,
@@ -37,7 +40,8 @@ const itemDetail = [
         image: 'escritorio1.jpg',
         stock: 9,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "escritorios"
     },
     {
         id:5,
@@ -47,7 +51,8 @@ const itemDetail = [
         image: 'rack1.jpg',
         stock: 8,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "racks"
     },
     {
         id:6,
@@ -57,7 +62,8 @@ const itemDetail = [
         image: 'cocina2.jpg',
         stock: 5,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "cocinas"
     },
     {
         id:7,
@@ -67,7 +73,8 @@ const itemDetail = [
         image: 'cocina3.jpg',
         stock: 2,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "cocinas"
     },
     {
         id:8,
@@ -77,7 +84,8 @@ const itemDetail = [
         image: 'dormitorio2.jpg',
         stock: 6,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "dormitorios"
     },
     {
         id:9,
@@ -87,7 +95,8 @@ const itemDetail = [
         image: 'dormitorio3.jpg',
         stock: 4,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "dormitorios"
     },
     {
         id:10,
@@ -97,7 +106,8 @@ const itemDetail = [
         image: 'escritorio2.jpg',
         stock: 5,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "escritorios"
     },
     {
         id:11,
@@ -107,7 +117,8 @@ const itemDetail = [
         image: 'escritorio3.jpg',
         stock: 11,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "escritorios"
     },
     {
         id:12,
@@ -117,7 +128,8 @@ const itemDetail = [
         image: 'rack2.jpg',
         stock: 2,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "racks"
     },
     {
         id:13,
@@ -127,7 +139,8 @@ const itemDetail = [
         image: 'rack3.jpg',
         stock: 9,
         quantity: 0,
-        totalPrice: 0
+        totalPrice: 0,
+        category: "racks"
     },
 ]
 

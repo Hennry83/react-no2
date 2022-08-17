@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react"
 import './ItemDetailContainer.scss'
 import ItemDetail from "../ItemDetail/ItemDetail"
-import productdetail from '../../utils/productdetail.mock'
+//import productdetail from '../../utils/productdetail.mock'
 import { useParams } from 'react-router-dom'
 import Modal from '../Modal/Modal'
+//firebase
+import db from "../../firebaseConfig"
+import { doc, getDoc } from "firebase/firestore"
+//import { async } from "@firebase/util"
 
 
 const ItemDetailContainer = () => {
@@ -13,10 +17,14 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
 
     useEffect( () => {
-        filterById()
+        //filterById()
+        getProduct()
+        .then( (res) => {
+            setDetailProduct(res)
+        })
     }, [id])
 
-    const filterById = () => {
+    /* const filterById = () => {
         productdetail.some( (product) => {
             if(product.id == id) {
                 console.log("producto filtrado: ", product)
@@ -24,6 +32,15 @@ const ItemDetailContainer = () => {
             }
         }
     )
+    } */
+
+    //usando firebase
+    const getProduct = async () => {
+         const docRef = doc(db,'productos',id)
+         const docSnapshot = await getDoc(docRef)
+         let product = docSnapshot.data()
+         product.id = docSnapshot.id
+         return product
     }
     
     return(

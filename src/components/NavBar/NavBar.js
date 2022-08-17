@@ -8,7 +8,7 @@ const NavBar = () => {
         // Fragment
         <div className='navbar'>
             <Link to="/">
-            <img src="/assets/header.png" alt="logo no2"/>
+            <img src="/assets/header.png" alt="logo no2" className="img-logo"/>
             </Link>
             <div className ="categories">
                 <p>Categorias:</p>
