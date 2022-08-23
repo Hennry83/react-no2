@@ -3,9 +3,12 @@ import Menu from '@mui/material/Menu';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState, useContext } from "react"
 import { CartContext } from "../Context/CartContext"
+import Modal from '../Modal/Modal';
+import db from '../../firebaseConfig';
+import { collection, addDoc } from 'firebase/firestore';
 
 const Cart = () => {
-    //const { cartProducts } = useContext(CartContext)
+    
     const { cartProducts, deleteProduct, clear } = useContext(CartContext)
 
     let totalCart = 0
@@ -14,6 +17,45 @@ const Cart = () => {
         console.log("Productos del cart", product)
         totalCart = totalCart + product.totalPrice
     });
+    
+    const [success, setSuccess] = useState()
+    const [showModal, setShowModal] = useState(false)
+    const [order, setOrder] = useState({
+        items: cartProducts.map((product) => {
+            return {
+                id: product.id,
+                title: product.title,
+                price: product.totalPrice
+            }
+        }),
+        buyer: {},
+        date: new Date().toLocaleString(),
+        total: totalCart
+    })
+
+    const [formData, setFormData] = useState({
+        name:'',
+        phone:'',
+        email:''
+    })
+
+    const handleChange = (e) =>{
+        console.log("Valor del target: ", e.target.name )
+        setFormData({...formData, [e.target.name] : e.target.value})
+    }
+
+    const submitData = (e) => {
+        e.preventDefault()
+        console.log("Orden paraenviar: ",{...order, buyer: formData})
+        pushData ({...order, buyer: formData})
+    }
+
+    const pushData = async (newOrder) => {
+        const collectionOrder = collection(db, 'ordenes')
+        const orderDoc = await addDoc(collectionOrder, newOrder)
+        setSuccess(orderDoc.id)
+        console.log("ORDEN GENERADA: ", orderDoc)
+    }
 
     return(
         <>
@@ -44,8 +86,48 @@ const Cart = () => {
             <div className ="cart-finish-footer">
                 <p className='totalAmount'>Total: $ {totalCart} </p>                   
                 <button onClick={() => clear()} className={"btn-delete-all"}>Clear Cart</button>
-                <button className="btn-pay">  PAY  </button>
+                <button onClick={() => setShowModal(true)} className="btn-pay">  PAY  </button>
             </div>
+            {showModal &&
+                <Modal title="DATOS DE CONTACTO" close={() => setShowModal()}>
+                    {success ? (
+                        <>
+                            <div className='successOrder'>
+                                <h2>SU ORDEN SE GENERO CORRECTAMENTE</h2>
+                                <p>ID de compra : {success}</p>
+                            </div>
+                        </>
+                    ) : (
+                        <div className='contactForm'>
+                            <form className='form' onSubmit={submitData}>
+                                <label>Nombre y Apellido:</label>
+                                <input type='text' 
+                                    name = 'name' 
+                                    placeholder='Ingrese el nombre'
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                />
+                                <label>Telefono:</label>
+                                <input type='number'
+                                    name = 'phone'
+                                    placeholder='Ingrese el telefono'
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                />
+                                <label>Correo electronico:</label>
+                                <input type='email'
+                                    name = 'email'
+                                    placeholder='Ingrese el mail'
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                />
+                                <button type="submit">Enviar</button>
+                            </form>
+                        </div>    
+                    )}
+                    
+                </Modal>
+            }
         </div>
         </>
     )
