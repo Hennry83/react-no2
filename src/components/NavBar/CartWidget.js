@@ -1,7 +1,6 @@
 import {useState , useContext} from 'react'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Menu from '@mui/material/Menu';
-//import MenuItem from '@mui/material/MenuItem';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CartContext } from '../Context/CartContext';
 import { Link } from 'react-router-dom'
@@ -22,7 +21,6 @@ const CartWidget = () => {
     };
 
     cartProducts.forEach(product => {
-        console.log("Productos del cart", product)
         totalCart = totalCart + product.totalPrice
     });
 

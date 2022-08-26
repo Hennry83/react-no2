@@ -20,7 +20,6 @@ const ItemCount = ({setQuantitySelected, dataProduct}) => {
     }
 
     const onAdd = () => {
-        console.log("Agregar al carrito: ", dataProduct)
         dataProduct.quantity = countQuantity
         dataProduct.totalPrice = dataProduct.price * dataProduct.quantity 
         addProductToCart(dataProduct)

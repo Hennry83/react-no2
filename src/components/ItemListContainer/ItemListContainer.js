@@ -12,8 +12,6 @@ const ItemListContainer = ({titleSection}) => {
 
     const [listProducts, setListProducts] = useState([])
     const {categoryName} = useParams();
-
-   // const filterCategory = products.filter((productos) => productos.category === categoryName);
     
    //usando firebase
     const getProducts = async () =>{
@@ -39,32 +37,11 @@ const ItemListContainer = ({titleSection}) => {
         }            
     }
 
-
-    // usando base datos local (products.mock)
-    /* const getProducts = new Promise( (resolve, reject) => {
-        setTimeout( () => {
-            if (categoryName){
-                resolve(filterCategory);
-            }else {
-                resolve(products);
-            }            
-        }, 2000);
-    }); */
-
     useEffect(() => {
         getProducts()
         .then((res) => {
             setListProducts(res)
         })
-/*         getProducts
-            .then( (res) => { // Respuesta OK
-                setListProducts(res)
-            })
-            .catch( (error) => { // Falla la respuesta
-                console.log("la llamada fallo")
-            })
-            .finally( () => { // Siempre que termina por OK o Fallo    
-            }) */
     },[getProducts])
 
 

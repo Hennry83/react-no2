@@ -1,4 +1,3 @@
-//import Cart from "../../components/Cart/Cart"
 import Cart from '../Cart/Cart'
 
 const Checkout = () => {

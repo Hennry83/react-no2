@@ -1,7 +1,6 @@
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Menu from '@mui/material/Menu';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState, useContext } from "react"
+import { Link } from 'react-router-dom'
 import { CartContext } from "../Context/CartContext"
 import Modal from '../Modal/Modal';
 import db from '../../firebaseConfig';
@@ -14,7 +13,6 @@ const Cart = () => {
     let totalCart = 0
 
     cartProducts.forEach(product => {
-        console.log("Productos del cart", product)
         totalCart = totalCart + product.totalPrice
     });
     
@@ -40,13 +38,11 @@ const Cart = () => {
     })
 
     const handleChange = (e) =>{
-        console.log("Valor del target: ", e.target.name )
         setFormData({...formData, [e.target.name] : e.target.value})
     }
 
     const submitData = (e) => {
         e.preventDefault()
-        console.log("Orden paraenviar: ",{...order, buyer: formData})
         pushData ({...order, buyer: formData})
     }
 
@@ -54,7 +50,6 @@ const Cart = () => {
         const collectionOrder = collection(db, 'ordenes')
         const orderDoc = await addDoc(collectionOrder, newOrder)
         setSuccess(orderDoc.id)
-        console.log("ORDEN GENERADA: ", orderDoc)
     }
 
     return(
@@ -85,7 +80,7 @@ const Cart = () => {
             })}
             <div className ="cart-finish-footer">
                 <p className='totalAmount'>Total: $ {totalCart} </p>                   
-                <button onClick={() => clear()} className={"btn-delete-all"}>Clear Cart</button>
+                <Link to="/"><button onClick={() => clear()} className={"btn-delete-all"}>Clear Cart</button></Link>
                 <button onClick={() => setShowModal(true)} className="btn-pay">  PAY  </button>
             </div>
             {showModal &&

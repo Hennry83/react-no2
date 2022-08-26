@@ -7,7 +7,6 @@ import Modal from '../Modal/Modal'
 //firebase
 import db from "../../firebaseConfig"
 import { doc, getDoc } from "firebase/firestore"
-//import { async } from "@firebase/util"
 
 
 const ItemDetailContainer = () => {
@@ -17,22 +16,11 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
 
     useEffect( () => {
-        //filterById()
         getProduct()
         .then( (res) => {
             setDetailProduct(res)
         })
     }, [id])
-
-    /* const filterById = () => {
-        productdetail.some( (product) => {
-            if(product.id == id) {
-                console.log("producto filtrado: ", product)
-                setDetailProduct(product) 
-            }
-        }
-    )
-    } */
 
     //usando firebase
     const getProduct = async () => {
