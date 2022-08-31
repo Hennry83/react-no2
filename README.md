@@ -9,6 +9,7 @@ El mimo esta desarrollado en React, utilizando librerias como:
 1. Material UI
 2. React-router-dom
 3. React-dom/client.
+4. Sweetalert2
 
  A traves de los distintos componentes se proporciona dinamismo y escalabilidad al sitio web.
  Con la correcta utilizacion de los Hooks, funciones y eventos, se logra una performance a todo el proyecto.
