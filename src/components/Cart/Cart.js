@@ -5,6 +5,8 @@ import { CartContext } from "../Context/CartContext"
 import Modal from '../Modal/Modal';
 import db from '../../firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 const Cart = () => {
     
@@ -43,7 +45,16 @@ const Cart = () => {
 
     const submitData = (e) => {
         e.preventDefault()
-        pushData ({...order, buyer: formData})
+        if(formData.name !== "" && formData.phone !=="" && formData.email !==""){
+            pushData ({...order, buyer: formData})
+        } else{
+             Swal.fire('Gasto no guardado', '', 'info')
+             Swal.fire({
+                icon: 'error',
+                title: 'Error de envio',
+                text: 'Debes completar todos los campos con tus datos antes de enviar.',
+              }) 
+        } 
     }
 
     const pushData = async (newOrder) => {
@@ -52,12 +63,14 @@ const Cart = () => {
         setSuccess(orderDoc.id)
     }
 
+    let titulo = success ? 'SU ORDEN SE GENERO CORRECTAMENTE' : 'DATOS DE CONTACTO';
+
     return(
         <>
-        <div className="title-cart-finish">
-            Carrito de checkout
+        <div className={`title-cart-finish ${showModal ? 'overlay-black' : ''}`}>
+           <p> Carrito de checkout</p>
         </div>
-        <div className='cart-finish' >
+        <div className={`cart-finish ${showModal ? 'overlay-black' : ''}`}>
             {cartProducts.map((product) => {
                 return(
                     <div className='item-cart-product' key={product.id}>
@@ -84,12 +97,32 @@ const Cart = () => {
                 <button onClick={() => setShowModal(true)} className="btn-pay">  PAY  </button>
             </div>
             {showModal &&
-                <Modal title="DATOS DE CONTACTO" close={() => setShowModal()}>
+                <Modal title= {titulo} close={() => setShowModal()}>
                     {success ? (
                         <>
                             <div className='successOrder'>
-                                <h2>SU ORDEN SE GENERO CORRECTAMENTE</h2>
-                                <p>ID de compra : {success}</p>
+                                <div className='id-compra'>
+                                    <p>El ID de su compra es el siguiente :</p>
+                                    <p>{success}</p>
+                                </div>
+                                <p>El detalle de su compra:</p>
+                                {cartProducts.map((product) => {
+                                    return(
+                                        <div className='order-product' key={product.id}>
+                                            <img src={`/assets/${product.image}`} alt="" />
+                                            <div className='order-product__details'>
+                                                <p>{product.title}</p>
+                                            </div>
+                                            <div className='order-product__details'>
+                                                <p>$ {product.totalPrice}</p>
+                                            </div>
+                                            <div className='order-product__details'>
+                                                <p>Unit: {product.quantity}</p>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                                <Link to="/"><button onClick={() => clear()} className={"btn-delete-all"}>OK</button></Link>
                             </div>
                         </>
                     ) : (

@@ -130,6 +130,7 @@ button.btn-delete-all {
     font-size: 12px;
     padding: 5px 15px;
     font-weight: bold;
+    border-radius: 5px;
 }
 
 button.btn-delete-all:hover {
@@ -148,6 +149,7 @@ button.btn-delete-all:hover {
     font-size: 10px;
     padding: 5px 15px;
     font-weight: bold;
+    border-radius: 5px;
 }
 
 .totalAmount{
@@ -162,7 +164,7 @@ button.btn-delete-all:hover {
 
 .title-cart-finish{
     text-align: center;
-    font-size: 28px;
+    font-size: 38px;
     font-weight: bold;
     color: rgb(4 4 54);
     text-shadow: 3px 1px 4px rgb(27, 30, 184);
@@ -194,6 +196,7 @@ button.btn-delete-all:hover {
     padding: 5px 20px;
     font-weight: bold;
     margin-left: 5%;
+    border-radius: 5px;
     &:hover {
         background:  coral;
         font-weight: bold;

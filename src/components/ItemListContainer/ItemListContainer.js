@@ -12,10 +12,8 @@ const ItemListContainer = ({titleSection}) => {
 
     const [listProducts, setListProducts] = useState([])
     const {categoryName} = useParams();
-    
-   //usando firebase
-    const getProducts = async () =>{
 
+    const getProducts = async () =>{
         if (categoryName){
             const productCollection = query(collection(db, 'productos'), where("category","==",categoryName))
             const productSnapshot = await getDocs(productCollection)
@@ -32,18 +30,17 @@ const ItemListContainer = ({titleSection}) => {
                 let product = doc.data()
                 product.id = doc.id
                 return product
-            })
+            })           
             return productList
-        }            
-    }
+        }               
+}
 
     useEffect(() => {
         getProducts()
         .then((res) => {
             setListProducts(res)
         })
-    },[getProducts])
-
+    },[categoryName])
 
     return(
         <>

@@ -30,7 +30,7 @@ const ItemCount = ({setQuantitySelected, dataProduct}) => {
         <>
             <div className="container-count">
                 <button onClick={removeQuantity}>-</button>
-                <span>{countQuantity}</span>
+                <p>{countQuantity}</p>
                 <button onClick={addQuantity}>+</button>
             </div>
             <button className="btn-add-cart" onClick={onAdd}>ADD TO CART</button>
