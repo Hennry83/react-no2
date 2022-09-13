@@ -23,15 +23,15 @@ const Cart = () => {
     const [order, setOrder] = useState({
         items: cartProducts.map((product) => {
             return {
-                id: product.id,
-                title: product.title,
-                price: product.totalPrice
+                id: '',
+                title: '',
+                price: '' 
             }
         }),
         buyer: {},
         date: new Date().toLocaleString(),
-        total: totalCart
-    })
+        total: ''
+    }) 
 
     const [formData, setFormData] = useState({
         name:'',
@@ -46,7 +46,14 @@ const Cart = () => {
     const submitData = (e) => {
         e.preventDefault()
         if(formData.name !== "" && formData.phone !=="" && formData.email !==""){
-            pushData ({...order, buyer: formData})
+            pushData ({...order, buyer: formData, total: totalCart, items: cartProducts.map((product) => {
+                return {
+                    id: product.id,
+                    title: product.title,
+                    price: product.totalPrice
+                }
+            })
+        })
         } else{
              Swal.fire('Gasto no guardado', '', 'info')
              Swal.fire({
